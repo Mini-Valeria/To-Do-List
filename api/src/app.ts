@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from "express";
 import cors from "cors";
 import UsersController from "./controllers/UsersController";
+import ActivitiesController from "./controllers/ActivitiesController";
 
 const app: Application = express();
 
@@ -17,5 +18,6 @@ app.post("/user/create", UsersController.register);
 app.post("/user/login", UsersController.login);
 
 //Rutas de actividades
+app.post("/activity/create", ActivitiesController.create)
 
 export default app;

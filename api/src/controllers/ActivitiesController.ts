@@ -41,5 +41,28 @@ export default {
             res.status(500).json({msg:"Ocurrió un error al crear la actividad :("})
             return;
         }
+    },
+    deleteUser:async (req, res) =>{
+        try {
+            const id= req.params.id
+            const user = await ActivityModel.findById(id);
+            if(!user){
+                res.status(400).json({
+                    "msg": "No se encontro la actividad a eliminar"
+                })
+                return;
+            }
+            await ActivityModel.deleteOne({
+                _id:id
+            });
+            res.status(200).json({
+                "msg": "Actividad eliminada con exito"
+            })
+            return;
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({msg:"Ocurrio un error al eliminar una actividad"});
+            return;
+        }
     }
 }
