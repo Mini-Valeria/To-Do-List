@@ -17,6 +17,7 @@ export function Home() {
   const [dateEnd, setDateEnd] = useState("");
   const [description, setDescription] = useState("");
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [editTask, setEditTask] = useState<Task | null>(null);
   const navigate = useNavigate();
   const idUser = "6757905a4a54d5f049c99a7a"; // Ejemplo de ID
 
@@ -118,6 +119,33 @@ export function Home() {
     navigate(`/${status}`);
   };
 
+  const handleUpdateTask = async (taskId: string, updatedTask: Partial<Task>) => {
+    try {
+      const response = await axios.put(`http://localhost:4000/activity/update/${taskId}`, updatedTask);
+
+      setTasks((prevTasks) =>
+        prevTasks.map((task) =>
+          task._id === taskId ? { ...task, ...updatedTask } : task
+        )
+      );
+
+      Swal.fire("Tarea actualizada", response.data.message, "success");
+    } catch (error: any) {
+      console.error("Error al actualizar la tarea:", error.message);
+      Swal.fire("Error", "No se pudo actualizar la tarea", "error");
+    }
+  };
+
+  const handleEditTask = (task: Task) => {
+    setEditTask(task);
+  };
+
+  const handleEditFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); if (editTask) {
+      await handleUpdateTask(editTask._id, editTask);
+    }
+  };
+
   return (
     <div className="home-container">
       <div className="home-app">
@@ -157,11 +185,33 @@ export function Home() {
               <li key={task._id} className="todo-item">
                 <strong>{task.title}</strong> - <small>{formatDate(task.dateEnd)}</small> {/* Solo la fecha */}
                 <p>{task.description}</p>
-                <button onClick={() => handleUpdateTaskStatus(task._id, "completed")}>Complete</button>
-                <button onClick={() => handleDeleteTask(task._id)}>Delete</button>
+                <button onClick={() => handleEditTask(task)}>Editar</button>
+                <button onClick={() => handleUpdateTaskStatus(task._id, "completed")}>Finalizar</button>
+                <button onClick={() => handleDeleteTask(task._id)}>Borrar</button>
               </li>
             ))}
         </ul>
+
+        {/* Formulario de edición */}
+        {editTask && (
+          <form className="todo-form" onSubmit={handleEditFormSubmit}>
+            <input
+              type="text"
+              value={editTask.title}
+              onChange={(e) => setEditTask({ ...editTask, title: e.target.value })}
+            />
+            <textarea
+              value={editTask.description}
+              onChange={(e) => setEditTask({ ...editTask, description: e.target.value })}
+            />
+            <input
+              type="date"
+              value={editTask.dateEnd}
+              onChange={(e) => setEditTask({ ...editTask, dateEnd: e.target.value })}
+            />
+            <button type="submit">Actualizar</button>
+          </form>
+        )}
       </div>
     </div>
   );

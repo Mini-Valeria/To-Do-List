@@ -47,7 +47,6 @@ export const Completed = () => {
             <li key={task._id} className="task-item">
               <strong>{task.title}</strong> - <small>{task.dateEnd}</small>
               <p>{task.description}</p>
-              <button className="delete-btn" onClick={() => handleDeleteTask(task._id)}>Delete</button>
             </li>
           ))}
         </ul>
