@@ -8,7 +8,7 @@ type Task = {
   title: string;
   dateEnd: string;
   description: string;
-  status: "Pending" | "Active" | "Completed";
+  status: "pending" | "active" | "completed";
 };
 
 export const Completed = () => {
@@ -18,7 +18,7 @@ export const Completed = () => {
     const fetchCompletedTasks = async () => {
       try {
         const response = await axios.get("http://localhost:4000/activity/get");
-        setTasks(response.data.tasks.filter((task: Task) => task.status === "Completed"));
+        setTasks(response.data.tasks.filter((task: Task) => task.status === "completed"));
       } catch (error) {
         console.error("Error al obtener tareas completadas:", error);
       }

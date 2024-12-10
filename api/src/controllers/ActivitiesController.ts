@@ -54,9 +54,9 @@ export default {
                     return;
                 }
 
-                activities = await activities.find({ idUser });
+                activities = await ActivityModel.find({ idUser });
             } else {
-                activities = await activities.find();
+                activities = await ActivityModel.find();
             }
 
             res.status(200).json({ msg: "Actividades obtenidas exitosamente", tasks: activities });
@@ -65,7 +65,6 @@ export default {
             res.status(500).json({ msg: "Ocurrió un error al obtener las actividades" });
         }
     },
-
     delete: async (req: Request, res: Response) => {
         try {
             const { id } = req.params;

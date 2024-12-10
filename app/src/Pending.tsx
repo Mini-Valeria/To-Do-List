@@ -6,7 +6,7 @@ type Task = {
   title: string;
   dateEnd: string;
   description: string;
-  status: "Pending" | "Active" | "Completed";
+  status: "pending" | "active" | "completed";
 };
 
 export const Pending = () => {
@@ -16,7 +16,7 @@ export const Pending = () => {
     const fetchPendingTasks = async () => {
       try {
         const response = await axios.get("http://localhost:4000/gettasks");
-        setTasks(response.data.tasks.filter((task: Task) => task.status === "Pending"));
+        setTasks(response.data.tasks.filter((task: Task) => task.status === "pending"));
       } catch (error) {
         console.error("Error al obtener tareas pendientes:", error);
       }

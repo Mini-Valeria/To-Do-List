@@ -9,7 +9,7 @@ type Task = {
   title: string;
   dateEnd: string;
   description: string;
-  status: "Pending" | "Active" | "Completed";
+  status: "pending" | "active" | "completed";
 };
 
 export function Home() {
@@ -39,8 +39,8 @@ export function Home() {
         // Mover tareas vencidas automáticamente a "Pending"
         const currentDate = new Date().toISOString().split("T")[0];
         const updatedTasks = fetchedTasks.map((task: Task) => {
-          if (task.status === "Active" && task.dateEnd < currentDate) {
-            task.status = "Pending";
+          if (task.status === "active" && task.dateEnd < currentDate) {
+            task.status = "pending";
           }
           return task;
         });
@@ -70,7 +70,7 @@ export function Home() {
         title,
         dateEnd,
         description,
-        status: "Active", 
+        status: "active",
         idUser,
       });
 
@@ -97,7 +97,7 @@ export function Home() {
     }
   };
 
-  const handleUpdateTaskStatus = async (taskId: string, newStatus: "Pending" | "Active" | "Completed") => {
+  const handleUpdateTaskStatus = async (taskId: string, newStatus: "pending" | "active" | "completed") => {
     try {
       const response = await axios.put(`http://localhost:4000/activity/update/${taskId}`, { status: newStatus });
 
@@ -114,53 +114,55 @@ export function Home() {
     }
   };
 
-  const handleNavigate = (status: "Completed" | "Pending") => {
+  const handleNavigate = (status: "completed" | "pending") => {
     navigate(`/${status}`);
   };
 
   return (
-    <div className="home-app">
-      <h1 className="title">-ˏˋ⋆ Tᴏ Dᴏ Aᴘᴘ ⋆ˊˎ-</h1>
+    <div className="home-container">
+      <div className="home-app">
+        <h1 className="title">-ˏˋ⋆ Tᴏ Dᴏ Aᴘᴘ ⋆ˊˎ-</h1>
 
-      {/* Formulario para crear tareas */}
-      <form className="todo-form" onSubmit={handleTasks}>
-        <input
-          type="text"
-          placeholder="Task Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <textarea
-          placeholder="Task Description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <input
-          type="date"
-          value={dateEnd}
-          onChange={(e) => setDateEnd(e.target.value)}
-        />
-        <button type="submit">📝 Agregar tarea</button>
-      </form>
-      <div className="navigation-buttons">
-        <button onClick={() => handleNavigate("Completed")}>✅ Tareas completadas</button>
-        <button onClick={() => handleNavigate("Pending")}>⌛ Tareas pendientes</button>
+        {/* Formulario para crear tareas */}
+        <form className="todo-form" onSubmit={handleTasks}>
+          <input
+            type="text"
+            placeholder="Task Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <textarea
+            placeholder="Task Description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          <input
+            type="date"
+            value={dateEnd}
+            onChange={(e) => setDateEnd(e.target.value)}
+          />
+          <button type="submit">📝 Agregar tarea</button>
+        </form>
+        <div className="navigation-buttons">
+          <button onClick={() => handleNavigate("completed")}>✅ Tareas completadas</button>
+          <button onClick={() => handleNavigate("pending")}>⌛ Tareas pendientes</button>
+        </div>
+
+        {/* Lista de tareas activas */}
+        <ul className="todo-list">
+          <h2 className="title">Tareas en curso</h2>
+          {tasks
+            .filter((task) => task.status === "active")
+            .map((task) => (
+              <li key={task._id} className="todo-item">
+                <strong>{task.title}</strong> - <small>{formatDate(task.dateEnd)}</small> {/* Solo la fecha */}
+                <p>{task.description}</p>
+                <button onClick={() => handleUpdateTaskStatus(task._id, "completed")}>Complete</button>
+                <button onClick={() => handleDeleteTask(task._id)}>Delete</button>
+              </li>
+            ))}
+        </ul>
       </div>
-
-      {/* Lista de tareas activas */}
-      <ul className="todo-list">
-        <h2 className="title">Tareas en curso</h2>
-        {tasks
-          .filter((task) => task.status === "Active")
-          .map((task) => (
-            <li key={task._id} className="todo-item">
-              <strong>{task.title}</strong> - <small>{formatDate(task.dateEnd)}</small> {/* Solo la fecha */}
-              <p>{task.description}</p>
-              <button onClick={() => handleUpdateTaskStatus(task._id, "Completed")}>Complete</button>
-              <button onClick={() => handleDeleteTask(task._id)}>Delete</button>
-            </li>
-          ))}
-      </ul>
     </div>
   );
 }
