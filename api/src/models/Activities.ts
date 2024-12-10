@@ -4,7 +4,7 @@ interface IActivities{
     title: string,
     dateEnd: Date,
     description: string,
-    status: 'active' | 'pending',
+    status: 'active' | 'pending' | 'completed',
     idUser: Schema.Types.ObjectId | string
 }
 

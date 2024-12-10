@@ -15,7 +15,7 @@ export const Login = () => {
     try {
       Swal.fire("Iniciando sesión...");
       Swal.showLoading();
-      const response = await axios.post('http://localhost:4000/user/sign-in', { email, password });
+      const response = await axios.post('http://localhost:4000/user/login', { email, password });
 
       Swal.fire(response.data.msg, "", "success");
       navigate("/Home");
