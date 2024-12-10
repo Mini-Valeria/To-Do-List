@@ -127,12 +127,12 @@ export function Home() {
         <form className="todo-form" onSubmit={handleTasks}>
           <input
             type="text"
-            placeholder="Task Title"
+            placeholder="¿Cómo se llamará la tarea a hacer?"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
           <textarea
-            placeholder="Task Description"
+            placeholder="Describe tu tarea :)"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -150,7 +150,7 @@ export function Home() {
 
         {/* Lista de tareas activas */}
         <ul className="todo-list">
-          <h2 className="title">Tareas en curso</h2>
+          <h2 className="title">Tᴀʀᴇᴀꜱ ᴇɴ ᴄᴜʀꜱᴏ</h2>
           {tasks
             .filter((task) => task.status === "active")
             .map((task) => (

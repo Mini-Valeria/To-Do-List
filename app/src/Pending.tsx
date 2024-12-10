@@ -15,7 +15,7 @@ export const Pending = () => {
   useEffect(() => {
     const fetchPendingTasks = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/gettasks");
+        const response = await axios.get("http://localhost:4000/activity/get");
         setTasks(response.data.tasks.filter((task: Task) => task.status === "pending"));
       } catch (error) {
         console.error("Error al obtener tareas pendientes:", error);
@@ -27,7 +27,7 @@ export const Pending = () => {
 
   return (
     <div className="task-container">
-      <h1>Pending Tasks</h1>
+      <h1>-ˏˋ⋆ Tᴀʀᴇᴀꜱ ᴘᴇɴᴅɪᴇɴᴛᴇꜱ ⋆ˊˎ-</h1>
       <ul>
         {tasks.map((task) => (
           <li key={task._id}>

@@ -1,7 +1,12 @@
 /* Estilos generales para la pantalla de tareas completadas */
+.home-container {
+  background-color: #d7ceff;
+  background-size: 100%;
+}
+
 .task-container {
   padding: 20px;
-  background-color: #f4f4f9;
+  background-color: #e9e9e9;
   border-radius: 8px;
   max-width: 800px;
   margin: 20px auto;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import './Completed.css'; 
+import './Completed.css';
 
 type Task = {
   _id: string;
@@ -39,17 +39,19 @@ export const Completed = () => {
   };
 
   return (
-    <div className="task-container">
-      <h1>Completed Tasks</h1>
-      <ul className="task-list">
-        {tasks.map((task) => (
-          <li key={task._id} className="task-item">
-            <strong>{task.title}</strong> - <small>{task.dateEnd}</small>
-            <p>{task.description}</p>
-            <button className="delete-btn" onClick={() => handleDeleteTask(task._id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+    <div className="home-container">
+      <div className="task-container">
+        <h1>-ˏˋ⋆ Tᴀʀᴇᴀꜱ ᴄᴏᴍᴘʟᴇᴛᴀᴅᴀꜱ ⋆ˊˎ-</h1>
+        <ul className="task-list">
+          {tasks.map((task) => (
+            <li key={task._id} className="task-item">
+              <strong>{task.title}</strong> - <small>{task.dateEnd}</small>
+              <p>{task.description}</p>
+              <button className="delete-btn" onClick={() => handleDeleteTask(task._id)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

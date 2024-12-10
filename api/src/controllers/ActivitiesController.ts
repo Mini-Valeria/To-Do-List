@@ -104,7 +104,7 @@ export default {
             }
     
             //Verifica que sea válido
-            if (!["Active", "Pending", "Completed"].includes(status)) {
+            if (!["active", "pending", "completed"].includes(status)) {
                 res.status(400).json({ message: "Estado inválido" });
                 return
             }
