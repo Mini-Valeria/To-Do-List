@@ -1,0 +1,78 @@
+/* Estilos generales para la pantalla de tareas completadas */
+.task-container {
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-container h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .task-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .task-item {
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-item strong {
+    font-size: 18px;
+    color: #2c3e50;
+  }
+  
+  .task-item small {
+    font-size: 14px;
+    color: #7f8c8d;
+  }
+  
+  .task-item p {
+    font-size: 16px;
+    color: #34495e;
+  }
+  
+  .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  .delete-btn:active {
+    background-color: #e74c3c;
+  }
+  
+  @media (max-width: 600px) {
+    .task-container {
+      padding: 15px;
+    }
+  
+    .task-item {
+      padding: 10px;
+    }
+  
+    .task-item small {
+      font-size: 12px;
+    }
+  }
+  

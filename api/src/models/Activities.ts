@@ -24,7 +24,7 @@ const ActivitySchema = new Schema<IActivities>({
     status:{
         type: String,
         required: true,
-        enum: ['active', 'pending']
+        enum: ['active', 'pending','completed']
     },
     idUser:{
         type: Schema.Types.ObjectId,

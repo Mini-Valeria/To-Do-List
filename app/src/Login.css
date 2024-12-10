@@ -1,0 +1,91 @@
+/* Fondo degradado */
+.login-container {
+  background: none;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+/* Caja del formulario */
+.login-box {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px 30px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Título */
+.login-box h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Grupo de input */
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+/* Botón de acción */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.login-btn:hover {
+  background: #2563eb;
+}
+
+/* Botón secundario */
+.login-btn.secondary {
+  background: #9333ea;
+}
+
+.login-btn.secondary:hover {
+  background: #7e22ce;
+}
+
+/* Link de navegación */
+.nav-link {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}

@@ -14,10 +14,13 @@ app.get('/', (_req:Request, res:Response) =>{
 });
 
 //Rutas de usuario
-app.post("/user/create", UsersController.register);
+app.post("/user/register", UsersController.register);
 app.post("/user/login", UsersController.login);
 
 //Rutas de actividades
 app.post("/activity/create", ActivitiesController.create)
+app.get("/activity/get", ActivitiesController.get);
+app.delete("/activity/delete/:id", ActivitiesController.delete);
+app.put("/activity/update/:id", ActivitiesController.update);
 
 export default app;

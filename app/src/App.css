@@ -1,201 +1,136 @@
-.App {
+/* Estilos generales */
+.home-app {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+h1.title {
   text-align: center;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Form */
+.todo-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-form input,
+.todo-form textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.todo-form button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-body{
-  background-color: #1f1e1e;
-  color:white;
-  overflow: hidden;
-}
-
-h1{
-  text-align: center;
-}
-
-.todo-wrapper{
-background: #353434;
-padding: 2%;
-width: fit-content;
-margin-left: auto;
-margin-right: auto;
-margin-top: 3%;
-max-height: 80vh;
-overflow-y: auto;
-box-shadow: 0px 5px 7px rgb(27, 27, 27);
-
-}
-
-.todo-input{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid rgb(78, 78, 78);
-  padding-bottom: 25px;
-  margin-bottom: 25px;
-}
-
-.todo-input-item{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-right: 25px;
-}
-
-.todo-input-item label{
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.todo-input-item input{
-  padding: 8px;
   border: none;
-  width: 250px;
-}
-
-.todo-input-item input:focus{
-  outline: 2px solid rgb(0,230,122);
-}
-
-.primaryBtn{
-  background-color: rgb(0,230,122);
-  color: white;
-  border:none;
-  border-radius: 0px;
-  margin-top: 25px;
-  padding: 10px;
-  width: 60px;
+  border-radius: 5px;
+  font-size: 16px;
   cursor: pointer;
 }
 
-.primaryBtn:hover{
-  background-color: rgb(4, 196, 106);
+.todo-form button:hover {
+  background-color: #45a049;
 }
 
-
-.secondaryBtn{
-  background-color: rgb(71, 71, 71);
-  color: white;
-  border:none;
-  border-radius: 0px;
-  margin-top: 25px;
-  padding: 10px;
-  width: fit-content;
-  cursor: pointer;
-
-}
-
-.active{
-  background-color: rgb(0,230,122);
-}
-
-.todo-list{
-  display: flex;
-  flex-direction: column;
-
-}
-
-.btn-area{
-  margin-bottom: 15px;
-}
-
-.todo-list-item{
-  background-color: #414040;
+/* Botones */
+.navigation-buttons {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 25px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0px 3px 5px rgb(43, 42, 42);
+  margin-bottom: 20px;
 }
 
-.todo-list-item h3{
-  font-size: 25px;
-  color: rgb(0,230,122);
-  font-weight: bold;
-  margin: 0;
-}
-
-.todo-list-item p{
-  font-size: 14px;
-  color: rgb(161, 161, 161);
-  margin-top: 8px;
-}
-
-.icon{
-  font-size: 35px;
-  cursor: pointer;
-}
-
-.icon:hover{
-  color: red;
-}
-
-.check-icon{
-  font-size: 25px;
-  margin-left: 10px;
-  color:rgb(0,230,122);
-  cursor: pointer;
-}
-
-.check-icon:hover{
-  color: rgb(4, 196, 106);
-}
-
-.edit__wrapper{
-  background-color: #414040;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.edit__wrapper input,.edit__wrapper textarea{
-  border: 1px solid lightgray;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 3px;
-}
-
-.edit__wrapper .primaryBtn{
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
+.navigation-buttons button {
+  padding: 10px 20px;
+  background-color: #2e6cd8;
+  color: white;
+  border: none;
+  border-radius: 5px;
   font-size: 16px;
-  width:fit-content;
+  cursor: pointer;
+  width: 48%;
+}
+
+.navigation-buttons button:hover {
+  background-color: #1a57a2;
+}
+
+/* Lista de tareas */
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-item {
+  background-color: #ffffff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.todo-item strong {
+  font-size: 18px;
+}
+
+.todo-item p {
+  margin-top: 5px;
+  color: #555;
+}
+
+/* Estilos para los botones de completar y eliminar */
+.todo-item button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Botón de completar */
+.todo-item button:nth-of-type(1) {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.todo-item button:nth-of-type(1):hover {
+  background-color: #45a049;
+}
+
+/* Botón de eliminar */
+.todo-item button:nth-of-type(2) {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.todo-item button:nth-of-type(2):hover {
+  background-color: #c0392b;
+}
+
+/* Estilos para botones de navegación a Completed y Pending */
+.navigation-buttons button:first-of-type {
+  background-color: #3498db;
+}
+
+.navigation-buttons button:first-of-type:hover {
+  background-color: #2980b9;
+}
+
+.navigation-buttons button:last-of-type {
+  background-color: #f39c12;
+}
+
+.navigation-buttons button:last-of-type:hover {
+  background-color: #e67e22;
 }
