@@ -29,10 +29,10 @@ export const Login = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>Iniciar Sesión</h2>
+        <h2 className='customFont'>INICIO DE SESIÓN</h2>
         <form onSubmit={handleLogin}>
           <div className="input-group">
-            <label htmlFor="email">Correo Electrónico</label>
+            <label className='customFont' htmlFor="email">Correo Electrónico</label>
             <input
               type="email"
               id="email"
@@ -44,7 +44,7 @@ export const Login = () => {
           </div>
 
           <div className="input-group">
-            <label htmlFor="password">Contraseña</label>
+            <label className='customFont' htmlFor="password">Contraseña</label>
             <input
               type="password"
               id="password"

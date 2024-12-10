@@ -18,7 +18,7 @@ export function Home() {
   const [description, setDescription] = useState("");
   const [tasks, setTasks] = useState<Task[]>([]);
   const navigate = useNavigate();
-  const idUser = "6744e5671b4fa961efc34a81"; // Ejemplo de ID
+  const idUser = "6757905a4a54d5f049c99a7a"; // Ejemplo de ID
 
   // Función para mostrar solo la fecha
   const formatDate = (dateString: string) => {
@@ -120,7 +120,7 @@ export function Home() {
 
   return (
     <div className="home-app">
-      <h1 className="title">To-Do App</h1>
+      <h1 className="title">-ˏˋ⋆ Tᴏ Dᴏ Aᴘᴘ ⋆ˊˎ-</h1>
 
       {/* Formulario para crear tareas */}
       <form className="todo-form" onSubmit={handleTasks}>
@@ -130,28 +130,26 @@ export function Home() {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <input
-          type="date"
-          value={dateEnd}
-          onChange={(e) => setDateEnd(e.target.value)}
-        />
         <textarea
           placeholder="Task Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-        <button type="submit">Add Task</button>
+        <input
+          type="date"
+          value={dateEnd}
+          onChange={(e) => setDateEnd(e.target.value)}
+        />
+        <button type="submit">📝 Agregar tarea</button>
       </form>
-
-      {}
       <div className="navigation-buttons">
-        <button onClick={() => handleNavigate("Completed")}>Completed Tasks</button>
-        <button onClick={() => handleNavigate("Pending")}>Pending Tasks</button>
+        <button onClick={() => handleNavigate("Completed")}>✅ Tareas completadas</button>
+        <button onClick={() => handleNavigate("Pending")}>⌛ Tareas pendientes</button>
       </div>
 
       {/* Lista de tareas activas */}
       <ul className="todo-list">
-        <h2>Active Tasks</h2>
+        <h2 className="title">Tareas en curso</h2>
         {tasks
           .filter((task) => task.status === "Active")
           .map((task) => (

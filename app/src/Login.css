@@ -1,36 +1,59 @@
+/* Fuente */
+.customFont {
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* Fondo degradado */
 .login-container {
-  background: none;
+  background-color: #d7ceff;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Caja del formulario */
 .login-box {
-  background: rgba(255, 255, 255, 0.9);
+  background: #e9e9e9;
   padding: 20px 30px;
   width: 100%;
   max-width: 400px;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Título */
 .login-box h2 {
   margin-bottom: 20px;
-  color: #333;
+  color: #a29fb1;
   font-size: 1.8rem;
   font-weight: bold;
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Grupo de input */
 .input-group {
   margin-bottom: 15px;
   text-align: left;
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .input-group label {
@@ -38,6 +61,10 @@
   font-size: 0.9rem;
   margin-bottom: 5px;
   color: #555;
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .input-group input {
@@ -47,6 +74,10 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   outline: none;
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Botón de acción */
@@ -55,37 +86,45 @@
   padding: 12px;
   font-size: 1rem;
   font-weight: bold;
-  background: #3b82f6;
+  background: #7e7997;
   color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease;
   margin-top: 10px;
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .login-btn:hover {
-  background: #2563eb;
+  background: #b4afca;
 }
 
 /* Botón secundario */
 .login-btn.secondary {
-  background: #9333ea;
+  background: #877997;
 }
 
 .login-btn.secondary:hover {
-  background: #7e22ce;
+  background: #b5a2ca;
 }
 
 /* Link de navegación */
 .nav-link {
   margin-top: 10px;
   font-size: 0.9rem;
-  color: #3b82f6;
+  color: #7e7997;
   text-decoration: none;
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .nav-link:hover {
-  color: #2563eb;
+  color: #b4afca;
   text-decoration: underline;
 }

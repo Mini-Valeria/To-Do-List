@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";  
 import './Login.css';  
 
-export const SignUp = () => {
+export const Register = () => {
   const [name, setName] = useState<string>(""); 
   const [email, setEmail] = useState<string>(""); 
   const [password, setPassword] = useState<string>(""); 
@@ -26,7 +26,7 @@ export const SignUp = () => {
 
     } catch (error: any) {  
       console.log(error.message);
-      Swal.fire('Error', error.response?.data?.msg || 'Ocurrió un error al registrar el usuario.', 'error');
+      Swal.fire('Error', error.response?.data?.msg || 'Ocurrió un error al registrar el usuario.', error);
     }
   };
 
@@ -37,17 +37,17 @@ export const SignUp = () => {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h2>Registro de Usuario</h2>
+        <h2 className='customFont'>REGISTRO</h2>
         <form onSubmit={handleSignUp}>
           <div className="input-group">
-            <label htmlFor="name">Nombre</label>
+            <label htmlFor="name">Nombre de usuario</label>
             <input 
               type="text" 
               id="name" 
               value={name} 
               onChange={(e) => setName(e.target.value)} 
               required 
-              placeholder="Ingresa tu nombre"
+              placeholder="Ingresa tu nombre de usuario"
             />
           </div>
 
@@ -74,13 +74,12 @@ export const SignUp = () => {
               placeholder="Crea una contraseña"
             />
           </div>
-
           <button type="submit" className="login-btn">Registrar</button>
+          <button type="button" className="login-btn" onClick={goToLogin}>Login</button>
         </form>
-        <button type="button" className="login-btn" onClick={goToLogin}>Ir a Login</button>
       </div>
     </div>
   )
 };
 
-export default SignUp;
+export default Register;

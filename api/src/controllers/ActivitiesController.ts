@@ -50,7 +50,7 @@ export default {
             if (idUser) {
                 const user = await UserModel.findById(idUser);
                 if (!user) {
-                    res.status(400).json({ msg: "La actividad no existe" });
+                    res.status(400).json({ msg: "El usuario no existe" });
                     return;
                 }
 
